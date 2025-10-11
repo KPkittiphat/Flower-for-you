@@ -27,7 +27,7 @@ const QuizPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const API_URL = 'https://flower-for-you-cvxh.onrender.com/api/quiz';
+  const API_URL = import.meta.env.VITE_API_URL;
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
