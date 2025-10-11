@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Loader2, Zap } from 'lucide-react'; // ลบ Volume2 ออก
+import Footer from '../components/Footer';
 
 interface Option {
   text: string;
@@ -38,7 +39,7 @@ const QuizPage: React.FC = () => {
     
     if (audio) {
       audio.loop = true;
-      audio.volume = 0.5; 
+      audio.volume = 0.2; 
       
       // การใช้ attribute autoplay ใน JSX จะพยายามเล่นเพลงทันที
       
@@ -149,7 +150,7 @@ const QuizPage: React.FC = () => {
   const isAnswered = answers.has(currentQuestion._id);
 
   return (
-    <div className="min-h-screen bg-pink-50 flex flex-col items-center p-8">
+    <div className="min-h-screen bg-pink-50 flex flex-col items-center p-8 pb-20">
       
       {/* 1. Audio Element: ใช้ attribute 'autoplay' และ 'hidden' (แทน controls) */}
       <audio ref={audioRef} src="/bg-music.mp3" preload="auto" autoPlay loop className="hidden" /> 
@@ -239,6 +240,8 @@ const QuizPage: React.FC = () => {
 
         
       )}
+      <Footer />
+
     </div>
   );
 };

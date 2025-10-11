@@ -1,5 +1,6 @@
 import { Flower2, Heart, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -41,6 +42,7 @@ const Home = () => {
           <span className="ml-2 text-2xl">👉</span>
         </button>
       </Link>
+      <Footer />
       
     </div>
   );
