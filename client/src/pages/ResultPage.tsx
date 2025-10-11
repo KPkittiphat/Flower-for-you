@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Wand2, RefreshCw, Home } from 'lucide-react'; // <== เพิ่ม RefreshCw กลับมา (เผื่อต้องการปุ่มทำซ้ำ)
+import { Wand2,  Home } from 'lucide-react'; // <== เพิ่ม RefreshCw กลับมา (เผื่อต้องการปุ่มทำซ้ำ)
 import Footer from '../components/Footer';
 
 interface FinalResult {
@@ -134,7 +134,7 @@ const ResultPage: React.FC = () => {
         </div>
 
       </div>
-      <Footer /> {/* Footer ถูกเรียกใช้แล้ว */}
+      <Footer /> 
 
     </div>
   );
