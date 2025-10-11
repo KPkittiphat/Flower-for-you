@@ -1,4 +1,3 @@
-// โหลดค่าตัวแปรสภาพแวดล้อมจากไฟล์ .env
 require('dotenv').config(); 
 
 const express = require('express');
@@ -7,12 +6,12 @@ const mongoose = require('mongoose');
 
 // ====================================================
 // 1. นำเข้า Models ก่อนใช้ Routes
+//    *** แก้ไข: ใช้ __dirname เพื่อให้ Path ถูกต้องเสมอสำหรับ Render ***
 // ====================================================
-// ตรวจสอบเส้นทางว่าถูกต้องหรือไม่ (ควรใช้ ./src/models/...)
-require('./src/models/Result.model');
-require('./src/models/Question.model');
+require(__dirname + '/src/models/Result.model');
+require(__dirname + '/src/models/Question.model');
 
-const quizRoutes = require('./src/routes/quiz.route');
+const quizRoutes = require(__dirname + '/src/routes/quiz.route'); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
