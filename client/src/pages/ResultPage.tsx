@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Wand2,  Home } from 'lucide-react';
+import { Wand2, RefreshCw, Home } from 'lucide-react'; // <== เพิ่ม RefreshCw กลับมา (เผื่อต้องการปุ่มทำซ้ำ)
+import Footer from '../components/Footer';
 
 interface FinalResult {
   personality: string;
@@ -78,16 +79,16 @@ const ResultPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-pink-50 flex flex-col items-center p-8">
-      <div className="w-full max-w-2xl bg-white p-10 rounded-3xl shadow-2xl border-4 border-pink-300 text-center">
+      <div className="w-full max-w-lg bg-white p-6 sm:p-10 rounded-3xl shadow-2xl border-4 border-pink-300 text-center"> {/* p-10/p-6 ลดลง */}
 
         {/* Title */}
-        <h1 className="text-4xl font-extrabold text-pink-700 mb-4 flex items-center justify-center">
-          <Wand2 className="w-8 h-8 mr-2 text-pink-500 animate-bounce" />
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-pink-700 mb-3 flex items-center justify-center"> {/* mb-4 เป็น mb-3 */}
+          <Wand2 className="w-7 h-7 mr-2 text-pink-500 animate-bounce" /> {/* w-8/h-8 เป็น w-7/h-7 */}
           ดอกไม้สำหรับคุณคือ...
         </h1>
 
-        {/* Flower Section - แสดงผลเป็นรูปภาพ */}
-        <div className="my-8">
+        {/* Flower Section - ลด Margin */}
+        <div className="my-6"> {/* my-8 เป็น my-6 */}
           {/* 5. Image Tag */}
           <img
             src={flowerImageUrl} // <== ใช้ URL ที่ดึงมาจาก Assets (แก้ไขแล้ว)
@@ -96,31 +97,31 @@ const ResultPage: React.FC = () => {
               e.currentTarget.onerror = null;
               e.currentTarget.src = 'https://placehold.co/400x400/999999/white?text=Image+Missing';
             }}
-            className="w-40 h-40 mx-auto mb-4 rounded-full object-cover shadow-lg border-4 border-pink-400 animate-in fade-in zoom-in duration-500"
+            className="w-36 h-36 sm:w-40 sm:h-40 mx-auto mb-3 rounded-full object-cover shadow-lg border-4 border-pink-400 animate-in fade-in zoom-in duration-500" 
           />
-          <h2 className="text-5xl font-black text-pink-600 tracking-wider">
+          <h2 className="text-4xl sm:text-5xl font-black text-pink-600 tracking-wider"> {/* ลดขนาด font เล็กน้อย */}
             {finalResult.flower}
           </h2>
-          <p className="text-2xl font-bold text-gray-700 mt-2">
+          <p className="text-xl sm:text-2xl font-bold text-gray-700 mt-1"> {/* ลดขนาด font และ margin top */}
             ({finalResult.personality})
           </p>
         </div>
 
-        {/* Meaning/Sweet Message Card */}
-        <div className="mt-8 bg-pink-100 p-6 rounded-xl border border-pink-200 shadow-inner">
-          <h3 className="text-xl font-bold text-pink-700 mb-3">ความหมายที่ซ่อนอยู่:</h3>
-          <p className="text-gray-700 italic mb-4">"{finalResult.meaning}"</p>
+        {/* Meaning/Sweet Message Card - ลด Padding, Font, Line Height */}
+        <div className="mt-6 bg-pink-100 p-4 rounded-xl border border-pink-200 shadow-inner"> {/* mt-8 เป็น mt-6 และ p-6 เป็น p-4 */}
+          <h3 className="text-lg font-bold text-pink-700 mb-1">ความหมายที่ซ่อนอยู่:</h3> {/* ลด Font และ mb */}
+          <p className="text-sm text-gray-700 italic mb-3 leading-snug">"{finalResult.meaning}"</p> {/* ลด Font และเพิ่ม leading-snug */}
 
-          <div className="bg-white p-5 rounded-lg border-2 border-pink-300">
-            <h3 className="text-xl font-bold text-red-500 mb-2">บทความดีๆสำหรับคุณ:</h3>
-            <p className="text-lg text-gray-800 font-medium whitespace-pre-line">
+          <div className="bg-white p-3 rounded-lg border-2 border-pink-300"> {/* p-5 เป็น p-3 */}
+            <h3 className="text-lg font-bold text-red-500 mb-1">บทความดีๆสำหรับคุณ:</h3> {/* ลด Font และ mb */}
+            <p className="text-base text-gray-800 font-medium whitespace-pre-line leading-snug"> {/* text-lg เป็น text-base และเพิ่ม leading-snug */}
               {finalResult.sweetMessage}
             </p>
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+        {/* Action Buttons - ลด Margin Top */}
+        <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4"> {/* mt-10 เป็น mt-6 */}
          
 
           <button
@@ -133,6 +134,8 @@ const ResultPage: React.FC = () => {
         </div>
 
       </div>
+      <Footer /> {/* Footer ถูกเรียกใช้แล้ว */}
+
     </div>
   );
 };
