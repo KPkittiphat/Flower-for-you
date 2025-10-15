@@ -234,7 +234,7 @@ const QuizPage: React.FC = () => {
           <br />
 
           <p>
-              เครดิตเพลง: อาจเป็นเพราะฉันเอง (me.)- PURPEECH Official
+              เครดิตเพลง:PURPEECH Official
             </p>
         </div>
 
